@@ -54,6 +54,7 @@ func execute_move(delta):
 		$AnimationPlayer.play("Stop")
 		running = false
 	
+	$SamityBar.region_rect.end = Vector2(30 * PlayerVariables.health / PlayerVariables.MAX_HEALTH, 4)
 	
 	move_and_slide(velocity)
 

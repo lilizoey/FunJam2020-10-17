@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/samity_sbar.png-6b3a3739ecd18a4af92b7be857158269.stex"
+path="res://.import/box_large.png-f127690a86c8899795dde0aed04ed8cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/samity_sbar.png"
-dest_files=[ "res://.import/samity_sbar.png-6b3a3739ecd18a4af92b7be857158269.stex" ]
+source_file="res://Props/box_large.png"
+dest_files=[ "res://.import/box_large.png-f127690a86c8899795dde0aed04ed8cc.stex" ]
 
 [params]
 

@@ -3,13 +3,13 @@
 [ext_resource path="res://Terrain/WALLS.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 8, 0, 8 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
@@ -18,16 +18,16 @@ points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 16, 8, 0, 8, 0, 0, 16, 0 )
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 16, 8, 8, 8, 8, 0, 16, 0 )
+points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 16, 8, 0, 8, 0, 0, 16, 0 )
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
+points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
 points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
@@ -36,7 +36,7 @@ points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 16, 8, 0, 8, 0, 0, 16, 0 )
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
@@ -45,10 +45,10 @@ points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 
 [sub_resource type="ConcavePolygonShape2D" id=17]
-segments = PoolVector2Array( 0, 0, 16, 0, 16, 0, 16, 16, 16, 16, 8, 16, 8, 16, 8, 8, 8, 8, 0, 8, 0, 8, 0, 0 )
+segments = PoolVector2Array( 0, 0, 16, 0, 16, 0, 16, 16, 16, 16, 8, 16, 8, 16, 0, 16, 0, 16, 0, 8, 0, 8, 0, 0 )
 
 [sub_resource type="ConcavePolygonShape2D" id=18]
-segments = PoolVector2Array( 0, 16, 0, 0, 0, 0, 16, 0, 16, 0, 16, 8, 16, 8, 8, 8, 8, 8, 8, 16, 8, 16, 0, 16 )
+segments = PoolVector2Array( 0, 16, 0, 0, 0, 0, 16, 0, 16, 0, 16, 8, 16, 8, 16, 16, 16, 16, 8, 16, 8, 16, 0, 16 )
 
 [resource]
 0/name = "WALLS.png 0"

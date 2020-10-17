@@ -7,11 +7,11 @@ export var floor_path: NodePath
 onready var _floor: Floor = get_node(floor_path)
 
 var next_point = null
-var move_speed: float = 40.0
+var move_speed: float = 60.0
 var resolved_hits: Dictionary = {}
 var move_direction = null
 
-var clean_time: float = 0.5
+var clean_time: float = 0.25
 var clean_timer: float = clean_time
 
 

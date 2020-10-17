@@ -90,6 +90,7 @@ func take_damage(damage: int):
 
 func die():
 	if dead: return
+	$Gun.queue_free()
 	
 	print("oh no we dead")
 	dead = true

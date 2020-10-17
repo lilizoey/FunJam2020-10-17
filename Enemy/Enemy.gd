@@ -42,25 +42,30 @@ func _physics_process(delta):
 			$AnimatedSprite.animation = "left"
 	
 	move_and_slide(move_direction * move_speed)
-	
-	if is_on_wall():
-		move_direction = null
-		return
-	
+		
 	for i in get_slide_count():
-		var collider = get_slide_collision(i).collider
-		hit(collider)
-
+		var collision = get_slide_collision(i)
+		hit(collision)
+		
+		
 func new_direction() -> Vector2:
+
 	var angle = rand_range(-PI, PI)
 	return Vector2(cos(angle), sin(angle))
 
-
-func hit(obj: Object):
-	if not resolved_hits.has(obj):
-		resolved_hits[obj] = true
-		if obj is PlayerBullet:
-			take_damage(obj.damage())
+func hit(collision: Object):
+	var collider = collision.collider
+	if not resolved_hits.has(collider):
+		var extra_angle = rand_range(-PI/16.0, PI/16.0)
+		
+		
+		resolved_hits[collider] = true
+		if collider is PlayerBullet:
+			take_damage(collider.damage())
+		else:
+			move_direction = move_direction \
+				.bounce(collision.normal) \
+				.rotated(extra_angle)
 
 func take_damage(damage: int):
 	print("ow! ", health)

@@ -44,10 +44,8 @@ func new_point() -> Vector2:
 	$Ray.force_raycast_update()
 	
 	if $Ray.get_collider():
-		print("Ray Point! ", $Ray.get_collider())
 		return $Ray.get_collision_point()
 	else:
-		print("Pos Point! ", global_position + point)
 		return global_position + point
 
 

@@ -26,11 +26,6 @@ func _ready():
 		tiles.append(row)
 		for y in range(min_y, max_y + 1):
 			row.append($Base.get_cell(x, y) != -1)
-	
-	for x in range(min_x - 5, max_x + 5):
-		for y in range(min_y - 5, max_y + 5):
-			is_clean(x, y)
-
 
 func _process(delta):
 	pass

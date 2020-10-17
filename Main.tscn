@@ -35,5 +35,5 @@ world = NodePath("..")
 
 [node name="Enemy" parent="Walls" instance=ExtResource( 2 )]
 position = Vector2( 251.713, 144.072 )
-player_path = null
-floor_path = null
+player_path = NodePath("../Player")
+floor_path = NodePath("../../Floor")

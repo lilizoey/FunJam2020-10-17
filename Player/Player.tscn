@@ -164,7 +164,7 @@ shape = SubResource( 1 )
 position = Vector2( -2, -9 )
 frames = SubResource( 13 )
 animation = "run"
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 
@@ -178,3 +178,7 @@ anims/Run = SubResource( 14 )
 anims/Stop = SubResource( 15 )
 "anims/Turn Left" = SubResource( 16 )
 "anims/Turn Right" = SubResource( 17 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+
+[node name="Sprite3" type="Sprite" parent="."]

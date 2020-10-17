@@ -62,7 +62,7 @@ func execute_move(delta):
 
 
 func execute_sanity(delta):
-	if !floor_node.v_is_clean(position):
+	if !floor_node.global_is_clean(global_position):
 		sanity_timer = 0
 		return
 	

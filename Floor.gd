@@ -35,10 +35,10 @@ func clean(x: int, y: int):
 		return
 	else:
 		tiles[x - min_x][y - min_y] = true
-		$Dirt.set_cell(x,y,0)
+		$Dirt.set_cell(x,y,-1)
 
-func clean_world(pos: Vector2):
-	var map_pos = $Dirt.world_to_map(pos)
+func clean_global(pos: Vector2):
+	var map_pos = $Dirt.world_to_map(to_local(pos))
 	clean(map_pos.x, map_pos.y)
 
 func is_clean(x: int, y: int) -> bool:
@@ -46,8 +46,12 @@ func is_clean(x: int, y: int) -> bool:
 		return true
 	if y < min_y or y > max_y:
 		return true
-
-	return tiles[x - min_x][y - min_y];
+	
+	return $Dirt.get_cell(x,y) == $Dirt.INVALID_CELL
 
 func v_is_clean(position: Vector2) -> bool:
 	return is_clean(floor(position.x + 0.5), floor(position.y + 0.5))
+
+func global_is_clean(pos: Vector2):
+	print(to_local(pos), " ", $Dirt.world_to_map(to_local(pos)))
+	return v_is_clean($Dirt.world_to_map(to_local(pos)))

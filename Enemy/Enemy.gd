@@ -28,7 +28,7 @@ func _physics_process(delta):
 	
 	if clean_timer <= 0:
 		clean_timer = clean_time
-		_floor.clean_world(global_position)
+		_floor.clean_global(global_position)
 	
 	if abs(move_direction.y) > abs(move_direction.x):
 		if move_direction.y > 0:

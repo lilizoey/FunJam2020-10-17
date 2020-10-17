@@ -3,6 +3,9 @@ extends KinematicBody2D
 export var player_path: NodePath
 onready var player: Player = get_node(player_path)
 
+export var floor_path: NodePath
+onready var _floor: Floor = get_node(floor_path)
+
 var next_point = null
 var move_speed: float = 120.0
 var move_distance: float = 160.0

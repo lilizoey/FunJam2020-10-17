@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Floor",
+"language": "GDScript",
+"path": "res://Floor.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Player/Gun/Bullet.gd"
 } ]
 _global_script_class_icons={
+"Floor": "",
 "Player": "",
 "PlayerBullet": ""
 }

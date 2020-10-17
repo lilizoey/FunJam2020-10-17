@@ -9,7 +9,8 @@ func _ready():
 func _process(delta):
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("fire"):
-		fire()
+		pass
+		#fire()
 
 func fire():
 	var bullet = BULLET.instance()

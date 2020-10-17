@@ -64,7 +64,10 @@ func execute_move(delta):
 func execute_sanity(delta):
 	if !floor_node.global_is_clean(global_position):
 		sanity_timer = 0
+		$Samity.visible = false
 		return
+	else:
+		$Samity.visible = true
 	
 	sanity_timer += delta
 	if sanity_timer < PlayerVariables.SANITY_TICK:

@@ -165,7 +165,6 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2, -9 )
 frames = SubResource( 13 )
-frame = 4
 playing = true
 flip_h = true
 
@@ -181,11 +180,13 @@ anims/Stop = SubResource( 15 )
 "anims/Turn Left" = SubResource( 16 )
 "anims/Turn Right" = SubResource( 17 )
 
-[node name="SamitySbar" type="Sprite" parent="."]
+[node name="Samity" type="Node2D" parent="."]
+
+[node name="SamitySbar" type="Sprite" parent="Samity"]
 position = Vector2( 0, -32 )
 texture = ExtResource( 3 )
 
-[node name="SamityBar" type="Sprite" parent="."]
+[node name="SamityBar" type="Sprite" parent="Samity"]
 position = Vector2( -15, -28 )
 texture = ExtResource( 5 )
 centered = false

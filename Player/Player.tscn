@@ -165,11 +165,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2, -9 )
 frames = SubResource( 13 )
-<<<<<<< HEAD
-frame = 4
-=======
-frame = 2
->>>>>>> e678294336fd4655053f36f370388da1b79e2f9f
+frame = 1
 playing = true
 flip_h = true
 

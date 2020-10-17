@@ -2,16 +2,26 @@ class_name Player
 extends KinematicBody2D
 
 export var world: NodePath
+
+export var floor_path: NodePath
+onready var floor_node: Floor = get_node(floor_path)
+
 var mouse_position: Vector2 = Vector2(0,0)
 var resolved_hits: Dictionary = {}
 
 var running = false
 var facing = "right"
 
+var sanity_timer: float = 0
+
 func _ready():
 	pass 
 
 func _physics_process(delta):
+	execute_move(delta)
+	execute_sanity(delta)
+	
+func execute_move(delta):
 	resolved_hits = {}
 	
 	var velocity = Vector2(0,0)
@@ -46,6 +56,20 @@ func _physics_process(delta):
 	
 	
 	move_and_slide(velocity)
+
+
+func execute_sanity(delta):
+	if !floor_node.v_is_clean(position):
+		sanity_timer = 0
+		return
+	
+	sanity_timer += delta
+	if sanity_timer < PlayerVariables.SANITY_TICK:
+		return
+	
+	sanity_timer -= PlayerVariables.SANITY_TICK
+	take_damage(PlayerVariables.SANITY_DAMAGE)
+
 
 func hit(obj: Object):
 	if not resolved_hits.has(obj):

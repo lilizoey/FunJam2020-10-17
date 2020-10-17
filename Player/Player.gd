@@ -76,7 +76,7 @@ func execute_sanity(delta):
 	sanity_timer -= PlayerVariables.SANITY_TICK
 	take_damage(PlayerVariables.SANITY_DAMAGE)
 	
-	$SamityBar.region_rect.end = Vector2(30 * PlayerVariables.health / PlayerVariables.MAX_HEALTH, 4)
+	$Samity/SamityBar.region_rect.end = Vector2(30 * PlayerVariables.health / PlayerVariables.MAX_HEALTH, 4)
 
 
 func hit(obj: Object):
@@ -97,6 +97,7 @@ func die():
 	
 	print("oh no we dead")
 	dead = true
+	$AnimationPlayer.play("Die")
 
 func get_world() -> Node:
 	return get_node(world)

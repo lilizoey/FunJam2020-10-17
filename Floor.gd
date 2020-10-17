@@ -33,7 +33,13 @@ func _process(delta):
 func clean(x: int, y: int):
 	if is_clean(x, y):
 		return
-	pass
+	else:
+		tiles[x - min_x][y - min_y] = true
+		$Dirt.set_cell(x,y,0)
+
+func clean_world(pos: Vector2):
+	var map_pos = $Dirt.world_to_map(pos)
+	clean(map_pos.x, map_pos.y)
 
 func is_clean(x: int, y: int) -> bool:
 	if x < min_x or x > max_x:

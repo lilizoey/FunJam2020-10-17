@@ -11,6 +11,10 @@ var move_speed: float = 40.0
 var resolved_hits: Dictionary = {}
 var move_direction = null
 
+var clean_time: float = 0.5
+var clean_timer: float = clean_time
+
+
 var health: int = 500
 
 func _ready():
@@ -20,7 +24,11 @@ func _physics_process(delta):
 	resolved_hits = {}
 	if not move_direction:
 		move_direction = new_direction()
+	clean_timer -= delta
 	
+	if clean_timer <= 0:
+		clean_timer = clean_time
+		_floor.clean_world(global_position)
 	
 	if abs(move_direction.y) > abs(move_direction.x):
 		if move_direction.y > 0:

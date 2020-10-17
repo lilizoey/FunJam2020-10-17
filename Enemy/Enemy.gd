@@ -22,6 +22,18 @@ func _physics_process(delta):
 		next_point = new_point()
 	
 	var remainingVector: Vector2 = next_point - global_position
+	
+	if abs(remainingVector.y) > abs(remainingVector.x):
+		if remainingVector.y > 0:
+			$AnimatedSprite.animation = "down"
+		else:
+			$AnimatedSprite.animation = "up"
+	else:
+		if remainingVector.x > 0:
+			$AnimatedSprite.animation = "right"
+		else:
+			$AnimatedSprite.animation = "left"
+	
 	var remainingLength = remainingVector.length()
 	
 	if is_on_wall() or remainingLength <= move_speed * delta * 2:

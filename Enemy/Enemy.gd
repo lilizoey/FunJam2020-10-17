@@ -21,16 +21,19 @@ func _physics_process(delta):
 	if not next_point:
 		next_point = new_point()
 	
-	var direction: Vector2 = (next_point - global_position).normalized()
+	var remainingVector: Vector2 = next_point - global_position
+	var remainingLength = remainingVector.length()
+	
+	if is_on_wall() or remainingLength <= move_speed * delta * 2:
+		next_point = null
+		return
+	
+	var direction: Vector2 = remainingVector.normalized()
 	move_and_slide(direction * move_speed)
 	
 	for i in get_slide_count():
 		var collider = get_slide_collision(i).collider
 		hit(collider)
-	
-	if is_on_wall() or (next_point - global_position).length() <= move_speed * delta * 2:
-		next_point = null
-
 
 func new_point() -> Vector2:
 	var angle = rand_range(-PI, PI)
@@ -40,9 +43,11 @@ func new_point() -> Vector2:
 	$Ray.cast_to = point
 	$Ray.force_raycast_update()
 	
-	if $Ray.get_collision_point():
+	if $Ray.get_collider():
+		print("Ray Point! ", $Ray.get_collider())
 		return $Ray.get_collision_point()
 	else:
+		print("Pos Point! ", global_position + point)
 		return global_position + point
 
 
@@ -53,5 +58,5 @@ func hit(obj: Object):
 			take_damage(obj.damage())
 
 func take_damage(damage: int):
-	print("ow! ", damage)
+	print("ow! ", health)
 	health -= damage

@@ -14,10 +14,14 @@ var facing = "right"
 
 var sanity_timer: float = 0
 
+var dead: bool = false
+
 func _ready():
 	pass 
 
 func _physics_process(delta):
+	if dead: return
+		
 	execute_move(delta)
 	execute_sanity(delta)
 	
@@ -53,9 +57,7 @@ func execute_move(delta):
 	elif not moving and running:
 		$AnimationPlayer.play("Stop")
 		running = false
-	
-	$SamityBar.region_rect.end = Vector2(30 * PlayerVariables.health / PlayerVariables.MAX_HEALTH, 4)
-	
+		
 	move_and_slide(velocity)
 
 
@@ -70,18 +72,27 @@ func execute_sanity(delta):
 	
 	sanity_timer -= PlayerVariables.SANITY_TICK
 	take_damage(PlayerVariables.SANITY_DAMAGE)
+	
+	$SamityBar.region_rect.end = Vector2(30 * PlayerVariables.health / PlayerVariables.MAX_HEALTH, 4)
 
 
 func hit(obj: Object):
+	if dead: return
+	
 	if not resolved_hits.has(obj):
 		resolved_hits[obj] = true
 
 func take_damage(damage: int):
-	print("player be like, ow: ", damage)
 	PlayerVariables.health -= damage
+	if PlayerVariables.health <= 0:
+		PlayerVariables.health = 0
+		die()
 
 func die():
-	pass
+	if dead: return
+	
+	print("oh no we dead")
+	dead = true
 
 func get_world() -> Node:
 	return get_node(world)

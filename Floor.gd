@@ -3,6 +3,9 @@ extends Node2D
 
 var tiles: Array = []
 
+export var tile_min: int = 0
+export var tile_max: int = 0
+
 func _ready():
 	var cells = $Base.get_used_cells()
 	var min_x
@@ -24,9 +27,8 @@ func _ready():
 		tiles.append([])
 		for y in range(min_y, max_y):
 			tiles.append($Base.get_cell(x,y))
-			print($Base.get_cell(x,y))
-
-
+			if $Base.get_cell(x,y) != $Base.INVALID_CELL:
+				$Dirt.set_cell(x, y, floor(rand_range(tile_min, tile_max)))
 
 func _process(delta):
 	pass
